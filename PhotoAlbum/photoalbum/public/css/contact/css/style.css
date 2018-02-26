@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Tahoma, sans-serif;
+    color: #666;
+    font-size: 16px;
+    background: #f9f9f9;
+    line-height: 1.6em;
+}
+ul,li{
+    list-style: none;
+}
+#container{
+    width: 100%;
+    margin: 50px auto;
+    overflow: auto;
+}
+.title{
+    height: 70px;
+    background: #6bb170;
+    color: #fff;
+    text-align: center;
+    padding-top: 13px;
+}
+.faq li{
+    padding: 20px;
+}
+.faq li.q{
+    font-weight: bold;
+    font-size: 120%;
+    border-bottom: 1px #ddd solid;
+    cursor: pointer;
+}
+.faq li.a{
+    background: #ddd;
+    display: none;
+}
+.aboutme{
+    position: relative;
+    margin-left: 70%;
+    bottom: 19px;
+}
+.addcontact{
+    position: relative;
+    margin-right: 70%;
+    bottom: -17px;
+}
+#project a{
+    color: dimgray;
+}
+.rotate{
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
