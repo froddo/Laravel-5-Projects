@@ -62,7 +62,7 @@
         </div>
         <div class="card card-body py-5">
             <h3>My Skills</h3>
-            <p>The projects, which I have did, gave me the skills to teach these technologies</p>
+            <p>The projects, which I have did, given me the skills to learn these technologies</p>
             <p>PHP, OOP, MVC, REST API, Laravel, MySql, HTML5, CSS, JavaScript, jQuery-Ajax, NPM-Axios.</p>
             <hr>
             <h4>PHP</h4>
