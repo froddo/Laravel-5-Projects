@@ -23,7 +23,7 @@
                 <div class="d-flex flex-column">
                     <div class="p-5 bg-dark text-white">
                         <div class="name d-flex flex-row justify-content-between align-items-center">
-                            <h1 class="display-4">Rumen Topalov</h1>
+                            <h1 class="display-5">Rumen Topalov</h1>
                             <div><a class="text-white" href="https://github.com/froddo" target="_blank"><i class="fa fa-github"></i></a></div>
                             <div><a class="text-white" href="https://www.linkedin.com/in/topalovr/" target="_blank"><i class="fa fa-linkedin"></i></a></div>
                             <div><i class="fa fa-facebook"></i></div>
@@ -234,8 +234,8 @@
                     </a>
                 </div>
             </div>
-
             <div class="row no-gutters">
+
                 <div class="col md 3">
                     <a href="/portfolio/src/portfoliopictures/photoalbumcreativity.jpg" data-toggle="lightbox">
                         <img src="/portfolio/src/portfoliopictures/photoalbumcreativity.jpg" class="img-fluid">
@@ -257,7 +257,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="row no-gutters">
                 <div class="col md 3">
                     <a href="/portfolio/src/portfoliopictures/photomarketadd.jpg" data-toggle="lightbox">
@@ -274,6 +273,31 @@
                         <img src="/portfolio/src/portfoliopictures/healthy.jpg" class="img-fluid">
                     </a>
                 </div>
+                <div class="col md 3">
+                    <a href="/portfolio/src/portfoliopictures/yoga.jpg" data-toggle="lightbox">
+                        <img src="/portfolio/src/portfoliopictures/yoga.jpg" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+
+            <div class="row no-gutters">
+
+                <div class="col md 3">
+                    <a href="/portfolio/src/portfoliopictures/food.jpg" data-toggle="lightbox">
+                        <img src="/portfolio/src/portfoliopictures/food.jpg" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col md 3">
+                    <a href="/portfolio/src/portfoliopictures/music.jpg" data-toggle="lightbox">
+                        <img src="/portfolio/src/portfoliopictures/music.jpg" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col md 3">
+                    <a href="/portfolio/src/portfoliopictures/music1.jpg" data-toggle="lightbox">
+                        <img src="/portfolio/src/portfoliopictures/music1.jpg" class="img-fluid">
+                    </a>
+                </div>
+
                 <div class="col md 3">
                     <a href="/portfolio/src/portfoliopictures/portfolio.jpg" data-toggle="lightbox">
                         <img src="/portfolio/src/portfoliopictures/portfolio.jpg" class="img-fluid">
