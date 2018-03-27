@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Item Manager</title>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://bootswatch.com/3/simplex/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Item Manager</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1>Add Item</h1>
+    <form id="itemForm">
+        <input type="hidden" id="hidden">
+        <div class="form-group">
+            <label>Text</label>
+            <input type="text" id="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Body</label>
+            <textarea id="body" class="form-control"></textarea>
+        </div>
+        <input type="submit" value="Submit" id="submit" class="btn btn-primary">
+        <input type="submit" value="Update" id="update" class="btn btn-primary">
+    </form>
+    <hr>
+    <ul id="items" class="list-group"></ul>
+</div>
+<script
+    src="https://code.jquery.com/jquery-1.12.4.js"
+    integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+    crossorigin="anonymous">
+</script>
+<script type="text/javascript">
+    let domain = 'http://restapi.test';
+$(document).ready(function () {
+        $('#update').hide();
+    // Submit event
+    $('#itemForm').on('submit', function (e) {
+        e.preventDefault();
+        let text = $('#text').val();
+        let body = $('#body').val();
+
+        addItem(text, body);
+    });
+
+    // Delete event
+    $('body').on('click', '.deleteLink',function (e) {
+        e.preventDefault();
+        let id = $(this).data('id');
+        deleteItem(id);
+    });
+    // Delete api
+    function deleteItem(id) {
+        $.ajax({
+            method: 'POST',
+            url: domain +  '/api/items/'+id,
+            data: {_method: 'DELETE'}
+        }).done(function (item) {
+            alert('Item Removed');
+            location.reload();
+        });
+    }
+
+    // Insert items using api
+
+    function addItem(text, body) {
+        $.ajax({
+            method: 'POST',
+            url: domain +  '/api/items',
+            data: {text:text, body: body}
+        }).done(function (item) {
+            alert('Item # '+ item.id+' added');
+            location.reload();
+        });
+    }
+
+    //Get items from api
+    getItems();
+
+    function getItems() {
+        $.ajax({
+           url: domain + '/api/items'
+        }).done(function (items) {
+            let output = '';
+            $.each(items, function (key, item) {
+                output += `
+                    <li class="list-group-item">
+                        <strong>${item.text}: </strong>${item.body} &nbsp; <a href="#" class="deleteLink btn btn-primary btn-xs" data-id="${item.id}">Delete</a> <a href="#" class="updateLink btn btn-success btn-xs" data-id="${item.id}">Edit</a>
+
+                    </li>
+                `;
+            });
+            $('#items').append(output);
+        });
+    }
+
+    // Edit Item
+
+    $('body').on('click', '.updateLink', function (e) {
+        e.preventDefault();
+        $('#submit').hide();
+        $('#update').show();
+        let id = $(this).data('id');
+
+        $.ajax({
+            url: domain + '/api/items/'+id,
+        }).done(function (items) {
+            console.log('ok');
+            $('#text').val(items.text);
+            $('#body').val(items.body);
+            $('#hidden').val(items.id);
+        });
+
+    });
+
+    // Update item
+
+    $('#update').click(function (e) {
+        e.preventDefault();
+        let text = $('#text').val();
+        let body = $('#body').val();
+        let id = $('#hidden').val();
+
+        $.ajax({
+            method: 'POST',
+            url: domain +  '/api/items/'+id,
+            data:{'_method': 'PUT',id:id, text:text, body:body}
+        }).done(function (items) {
+            alert('Item ' + items.id + ' updated');
+           location.reload();
+        });
+    });
+});
+</script>
+</body>
+</html>
