@@ -75,13 +75,15 @@ class ProfilesController extends Controller
         $user->profile->youtube = $request->youtube;
         $user->profile->about = $request->about;
 
+        
+
+        if ($request->password){
+            
+            $user->password = bcrypt($request->password);
+        }
+
         $user->save();
         $user->profile->save();
-
-        if ($request->has('password')){
-            $user->password = bcrypt($request->password);
-            $user->save();
-        }
 
         Session::flash('success', 'Account profile updated.');
 
